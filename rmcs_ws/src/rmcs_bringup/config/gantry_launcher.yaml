@@ -1,0 +1,48 @@
+rmcs_executor:
+  ros__parameters:
+    update_rate: 1000.0
+    components:
+      - rmcs_core::hardware::GantryLauncherTest -> gantry_launcher
+
+/gantry_launcher:
+  ros__parameters:
+    board_serial: ""
+
+    # 电机 CAN ID：yaw=1，pitch_right=2，pitch_left=3
+    pitch_left_reversed: false
+    pitch_right_reversed: false
+    yaw_reversed: false
+
+    pitch_position_kp: 4.0
+    pitch_position_ki: 0.02
+    pitch_position_kd: 0.005
+    pitch_velocity_kp: 0.6
+    pitch_velocity_ki: 0.0
+    pitch_velocity_kd: 0.0
+    pitch_velocity_feedforward: 1.0
+
+    yaw_position_kp: 5.0
+    yaw_position_ki: 0.01
+    yaw_position_kd: 0.005
+    yaw_velocity_kp: 0.6
+    yaw_velocity_ki: 0.0
+    yaw_velocity_kd: 0.0
+    yaw_velocity_feedforward: 1.0
+
+    filter_cutoff_hz: 30.0
+    filter_sampling_hz: 1000.0
+
+    pitch_rate_max: 8.0
+    yaw_rate_max: 8.0
+    pitch_speed_limit: 10.0
+    yaw_speed_limit: 10.0
+    position_integral_limit: 100.0
+    velocity_integral_limit: 100.0
+
+    # false = 关闭 pitch 角度限位（多圈丝杆升举用，摇杆累计目标不再 clamp）
+    pitch_limit_enabled: false
+    pitch_upper_limit: 100.0
+    pitch_lower_limit: -0.05
+
+    skew_kp: 0.15
+    deadzone: 0.05

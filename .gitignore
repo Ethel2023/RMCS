@@ -79,3 +79,7 @@ develop_ws
 .codex/
 .mimo/
 CLAUDE.md
+
+# Core dumps from crashed processes
+core
+core.*
